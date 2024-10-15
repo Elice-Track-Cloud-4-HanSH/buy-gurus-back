@@ -1,5 +1,6 @@
 package com.team04.buy_gurus.user.entity;
 
+import com.team04.buy_gurus.sellerinfo.entity.SellerInfo;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -46,6 +47,10 @@ public class User {
     @Column(name = "refresh_token", nullable = true)
     private String refreshToken;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "seller_info_id", nullable = true)
+    private SellerInfo sellerInfo;
+
     public void updateRefreshToken(String refreshToken) {
         this.refreshToken = refreshToken;
     }
@@ -56,5 +61,13 @@ public class User {
 
     public void updateEmail(String email){
         this.email = email;
+    }
+
+    public void updateRole(){
+        this.role = Role.SELLER;
+    }
+
+    public void updatePassword(String password) {
+        this.password = password;
     }
 }

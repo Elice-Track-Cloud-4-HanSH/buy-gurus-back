@@ -9,15 +9,17 @@ public class PermitAllUrlConfig {
 
     public List<String> getPermitAllUrls() {
         return List.of(
-                "/",
+                "/home",
                 "/css/**",
                 "/images/**",
                 "/js/**",
                 "/favicon.ico",
                 "/h2-console",
+                "/login",
                 "/signup",
                 "/oauth2/authorization/**",
-                "/api/auth/**"
+                "/api/auth/**",
+                "/reset-password"
         );
     }
 }
